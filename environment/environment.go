@@ -83,7 +83,9 @@ func (e *Environment) Up(ctx context.Context, s solver.Solver) error {
 
 	// Orchestrate execution with cueflow
 	flow := cueflow.New(
-		&cueflow.Config{},
+		&cueflow.Config{
+			FindHiddenTasks: true,
+		},
 		e.src.Cue(),
 		newTaskFunc(newPipelineRunner(e.computed, s, e.state.Context)),
 	)
