@@ -79,9 +79,11 @@ package engine
 
 // Merge multiple FS trees into one
 #Merge: {
-	@dagger(notimplemented)
 	$dagger: task: _name: "Merge"
 
+	// TODO: Do we actually need an input for this? 
+	// We could just use layers
+	// NOTE: I'm planning on beginning with that. 
 	input: #FS
 	layers: [...#CopyInfo]
 	output: #FS
