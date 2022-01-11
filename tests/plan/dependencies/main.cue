@@ -28,8 +28,8 @@ engine.#Plan & {
 			contents: "Hello Europa!"
 		}
 
-		#things: {
-			require: [...]
+		#things: engine.#Unit & {
+			require: [...engine.#Unit]
 			sayHello2: engine.#Exec & {
 				input:     pull.output
 				"require": require
@@ -64,10 +64,23 @@ engine.#Plan & {
 				// assert result
 				contents: "Hello from Dagger"
 			}
+
+			#last: [verifyWorld]
 		}
 
 		todo: #things & {
 			require: [readfile]
+		}
+
+		sayHello4: engine.#Exec & {
+			require: todo.#last
+			input:   pull.output
+			args: [
+				"sh", "-c",
+				#"""
+					echo -Hello from Dagger
+					"""#,
+			]
 		}
 	}
 }

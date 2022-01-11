@@ -28,8 +28,13 @@ package engine
 	$dagger: service: _id: string
 }
 
-#Task: {
-	require?: [...#Task]
+#Task: #Unit & {
 	$dagger: task: _name: string
 	...
+}
+
+#Unit: {
+	require?: [...#Unit]
+	...
+	#last?: [...#Unit]
 }
