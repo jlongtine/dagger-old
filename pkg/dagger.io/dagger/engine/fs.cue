@@ -1,7 +1,7 @@
 package engine
 
 // Create one or multiple directory in a container
-#Mkdir: {
+#Mkdir: #Task & {
 	$dagger: task: _name: "Mkdir"
 
 	// Container filesystem
@@ -21,7 +21,7 @@ package engine
 	output: #FS
 }
 
-#ReadFile: {
+#ReadFile: #Task & {
 	$dagger: task: _name: "ReadFile"
 
 	// Filesystem tree holding the file
@@ -33,7 +33,7 @@ package engine
 }
 
 // Write a file to a filesystem tree, creating it if needed
-#WriteFile: {
+#WriteFile: #Task & {
 	$dagger: task: _name: "WriteFile"
 
 	// Input filesystem tree
@@ -52,7 +52,7 @@ package engine
 #Scratch: #FS & {$dagger: fs: _id: null}
 
 // Copy files from one FS tree to another
-#Copy: {
+#Copy: #Task & {
 	$dagger: task: _name: "Copy"
 
 	input: #FS
@@ -69,7 +69,7 @@ package engine
 }
 
 // Merge multiple FS trees into one
-#Merge: {
+#Merge: #Task & {
 	@dagger(notimplemented)
 	$dagger: task: _name: "Merge"
 

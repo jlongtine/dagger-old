@@ -1,7 +1,7 @@
 package engine
 
 // Execute a command in a container
-#Exec: {
+#Exec: #Task & {
 	$dagger: task: _name: "Exec"
 
 	// Container filesystem

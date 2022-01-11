@@ -1,7 +1,7 @@
 package engine
 
 // Upload a container image to a remote repository
-#Push: {
+#Push: #Task & {
 	$dagger: task: _name: "Push"
 
 	// Target repository address
@@ -45,7 +45,7 @@ package engine
 }
 
 // Download a container image from a remote repository
-#Pull: {
+#Pull: #Task & {
 	$dagger: task: _name: "Pull"
 
 	// Repository source ref
@@ -70,7 +70,7 @@ package engine
 
 // Build a container image using buildkit
 // FIXME: rename to #Dockerfile to clarify scope
-#Build: {
+#Build: #Task & {
 	$dagger: task: _name: "Build"
 
 	// Source directory to build

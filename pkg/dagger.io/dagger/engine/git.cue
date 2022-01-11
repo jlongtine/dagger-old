@@ -1,7 +1,7 @@
 package engine
 
 // Push a directory to a git remote
-#GitPush: {
+#GitPush: #Task & {
 	@dagger(notimplemented)
 	$dagger: task: _name: "GitPush"
 
@@ -13,7 +13,7 @@ package engine
 // Pull a directory from a git remote
 // Warning: do NOT embed credentials in the remote url as this will expose them in logs. 
 // By using username and password Dagger will handle this for you in a secure manner.
-#GitPull: {
+#GitPull: #Task & {
 	$dagger: task: _name: "GitPull"
 	remote:     string
 	ref:        string

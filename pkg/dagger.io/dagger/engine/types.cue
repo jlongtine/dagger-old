@@ -27,3 +27,9 @@ package engine
 #Service: {
 	$dagger: service: _id: string
 }
+
+#Task: {
+	require?: [...#Task]
+	$dagger: task: _name: string
+	...
+}

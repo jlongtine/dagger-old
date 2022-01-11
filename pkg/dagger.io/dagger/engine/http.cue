@@ -17,7 +17,7 @@ package engine
 // func Filename(name string) HTTPOption
 
 // Fetch a file over HTTP
-#HTTPFetch: {
+#HTTPFetch: #Task & {
 	$dagger: task: _name: "HTTPFetch"
 
 	// Source url
